@@ -374,10 +374,34 @@ body {
   min-height: 300px;
 }
 
-/* Ẩn slider-nav cho đến khi Slick khởi tạo */
+/* Show slider-nav by default but hide it only until Slick is initialized.
+   Avoid global !important so the nav can be visible on larger screens
+   and won't stay hidden before Slick initializes. */
 .modal-slider .slider-nav {
   min-height: 80px;
+  display: block;
+}
+
+/* Hide thumbnail nav only while Slick has not initialized. */
+.modal-slider .slider-nav:not(.slick-initialized) {
+  /* fallback for browsers where inline styles might override display,
+     use visibility/opacity to prevent flicker before JS runs */
   display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* When slider is ready (set by JS), reveal thumbnails smoothly */
+.modal-slider.slick-ready .slider-nav {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  overflow: visible;
+  pointer-events: auto;
 }
 
 .modal-slider .slider-for .slick-slide,
@@ -523,16 +547,18 @@ body {
   color: #6c757d;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .contact-links .contact-option {
     min-height: 150px;
     padding: 18px 14px;
   }
 
-  /* Hide thumbnail nav on very small screens until Slick initializes.
-     Using :not(.slick-initialized) so Slick can display it after init. */
-  .modal-slider .slider-nav:not(.slick-initialized) {
-    display: none;
+  /* Force hide thumbnail nav on small screens (mobile). This ensures the
+     thumbnail row remains hidden on phones regardless of inline styles
+     applied by JS or Bootstrap. Using !important but scoped to this
+     media query only so larger screens remain unaffected. */
+  .modal-slider .slider-nav {
+    display: none !important;
   }
 
   .modal-slider .slick-dots {

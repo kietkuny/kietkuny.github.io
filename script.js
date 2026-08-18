@@ -52,12 +52,12 @@ $(document).ready(function () {
     const $navSlider = $modal.find('.slider-nav');
 
     // Unslick trước nếu đã khởi tạo
-    if ($forSlider.hasClass('slick-initialized')) {
-      $forSlider.slick('unslick');
-    }
-    if ($navSlider.hasClass('slick-initialized')) {
-      $navSlider.slick('unslick');
-    }
+    // if ($forSlider.hasClass('slick-initialized')) {
+    //   $forSlider.slick('unslick');
+    // }
+    // if ($navSlider.hasClass('slick-initialized')) {
+    //   $navSlider.slick('unslick');
+    // }
 
     // Khởi tạo slider chính
     $forSlider.slick({
@@ -101,8 +101,15 @@ $(document).ready(function () {
       ]
     });
 
-    // Show slider-nav sau khi Slick khởi tạo
-    $navSlider.show();
+    // After init: mark modal as ready so CSS can reveal the nav without flicker.
+    // Only add ready state on larger screens; on mobile keep it hidden.
+    // if ($(window).width() > 768) {
+    //   $navSlider.show();
+    //   $modal.addClass('slick-ready');
+    // } else {
+    //   $navSlider.hide();
+    //   $modal.removeClass('slick-ready');
+    // }
   }
 
   // Xử lý modal banner
@@ -114,12 +121,14 @@ $(document).ready(function () {
     const $forSlider = $(this).find('.slider-for');
     const $navSlider = $(this).find('.slider-nav');
 
-    if ($forSlider.hasClass('slick-initialized')) {
-      $forSlider.slick('unslick');
-    }
-    if ($navSlider.hasClass('slick-initialized')) {
-      $navSlider.slick('unslick');
-    }
+    // if ($forSlider.hasClass('slick-initialized')) {
+    //   $forSlider.slick('unslick');
+    // }
+    // if ($navSlider.hasClass('slick-initialized')) {
+    //   $navSlider.slick('unslick');
+    // }
+    // remove ready state to reset for next open
+    // $(this).removeClass('slick-ready');
   });
 
   // Xử lý modal img tương tự
@@ -131,12 +140,14 @@ $(document).ready(function () {
     const $forSlider = $(this).find('.slider-for');
     const $navSlider = $(this).find('.slider-nav');
 
-    if ($forSlider.hasClass('slick-initialized')) {
-      $forSlider.slick('unslick');
-    }
-    if ($navSlider.hasClass('slick-initialized')) {
-      $navSlider.slick('unslick');
-    }
+    // if ($forSlider.hasClass('slick-initialized')) {
+    //   $forSlider.slick('unslick');
+    // }
+    // if ($navSlider.hasClass('slick-initialized')) {
+    //   $navSlider.slick('unslick');
+    // }
+    // remove ready state to reset for next open
+    // $(this).removeClass('slick-ready');
   });
 
   // Refresh AOS after slider initialization to recalculate offsets
