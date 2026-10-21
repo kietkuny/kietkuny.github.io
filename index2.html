@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiệt Kun — Content Creator</title>
+<link rel="icon" href="img/LogoWeb.svg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,500&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+<style>
+:root{--g900:#1b2d1a;--g800:#243b22;--g700:#2f4d2b;--g500:#5b7d4f;--cream:#f3ead6;--paper:#e6d6b0;--gold:#c8963a;--rust:#a8472b;--ink:#2b2518;--brown:#33281a;--ink2:#1c1a14}
+html{scroll-behavior:smooth}
+body{font-family:'Courier Prime',monospace;background:var(--cream);color:var(--ink);overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2000;opacity:.13;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3,h4,h5{font-family:'Playfair Display',serif}
+section{position:relative;padding:110px 0 90px;scroll-margin-top:0}
+section::before{content:"";position:absolute;top:0;left:0;right:0;height:14px;z-index:3;background:radial-gradient(circle at 12px -2px,var(--prev) 12px,transparent 13px) 0 0/24px 14px repeat-x}
+.title{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;text-align:center;margin-bottom:.4rem}
+.sub{text-align:center;letter-spacing:.25em;text-transform:uppercase;font-size:.8rem;margin-bottom:3rem;color:var(--gold)}
+.sub::before,.sub::after{content:"✦";margin:0 .8em}
+/* nav */
+.navbar{transition:.3s;padding:1rem 0;z-index:1500}
+.navbar.solid{background:rgba(27,45,26,.96);padding:.5rem 0;box-shadow:0 4px 0 var(--gold)}
+.navbar-brand{font-family:'Playfair Display';font-weight:800;color:var(--cream)!important}
+.navbar-brand img{height:34px;margin-right:8px}
+.nav-link{color:var(--cream)!important;text-transform:uppercase;letter-spacing:.12em;font-size:.82rem}
+.nav-link{border-bottom:2px solid transparent}
+.nav-link:hover,.nav-link.active{color:var(--gold)!important;border-bottom-color:var(--gold)}
+.navbar-toggler{border-color:var(--gold)}.navbar-toggler-icon{filter:invert(1)}
+/* hero */
+#home{--prev:transparent;min-height:100vh;display:flex;align-items:center;color:var(--cream);background:radial-gradient(ellipse at 70% 30%,#35563000,#1b2d1a 70%),repeating-linear-gradient(45deg,var(--g800) 0 2px,var(--g900) 2px 14px)}
+#home::before{display:none}
+#home h1{font-size:clamp(2rem,4.8vw,4.4rem);font-weight:800;line-height:1.1;white-space:nowrap}
+#home h1 em{color:var(--gold);font-style:italic}
+.typed-line{font-size:1.5rem;margin:1rem 0}.typed-line b{color:var(--gold)}
+.quote{font-style:italic;max-width:520px;opacity:.9;border-left:3px solid var(--gold);padding-left:1rem}
+.btn-vin{display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--gold);color:var(--cream);background:transparent;border-radius:0;padding:.7rem 1.6rem;letter-spacing:.15em;text-transform:uppercase;box-shadow:5px 5px 0 var(--gold);transition:.2s}
+.btn-vin.fill{background:var(--cream);border-color:var(--cream);color:var(--g900);font-weight:700;box-shadow:5px 5px 0 var(--gold)}
+.btn-vin.fill:hover{border-color:var(--gold)}
+.btn-vin:hover{background:var(--gold);color:var(--g900)}
+.btn-vin:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--cream)}
+.social a{color:var(--cream);font-size:1.4rem;margin-right:1.1rem;transition:.2s;display:inline-block}.social a:hover{color:var(--gold);transform:translateY(-4px) rotate(-6deg)}
+.stamp{position:absolute;right:6%;bottom:12%;width:150px;animation:spin 25s linear infinite;opacity:.8}
+@keyframes spin{to{transform:rotate(360deg)}}
+.polaroid{background:#fbf6e8;padding:14px 14px 48px;box-shadow:0 14px 30px rgba(0,0,0,.4);transform:rotate(3deg);max-width:340px;margin:auto;position:relative;color:var(--ink);text-align:center;font-family:'Playfair Display';font-style:italic}
+.polaroid::before{content:"";position:absolute;top:-14px;left:50%;width:90px;height:28px;background:rgba(200,150,58,.75);transform:translateX(-50%) rotate(-3deg)}
+.polaroid img,.polaroid video{width:100%;aspect-ratio:4/5;object-fit:cover;filter:sepia(.35) contrast(1.05);display:block}
+.polaroid span{position:absolute;bottom:12px;left:0;right:0}
+/* about */
+#about{--prev:var(--g900);background:var(--cream)}
+.nav-pills .nav-link{color:var(--g700)!important;border:2px solid var(--g700);border-radius:0;margin:0 .3rem;font-weight:700}
+.nav-pills .nav-link.active{background:var(--g700);color:var(--cream)!important}
+.card-paper{background:#faf3e0;border:2px solid var(--ink);box-shadow:8px 8px 0 var(--g700);padding:2rem}
+.info td{padding:.55rem .4rem;border-bottom:1px dashed #9a8c6a}.info td:first-child{font-weight:700;color:var(--g700);white-space:nowrap;padding-right:1.5rem}
+.skill{margin-bottom:1.2rem}.skill .d-flex{font-weight:700}
+.bar{height:12px;border:2px solid var(--ink);background:var(--cream)}
+.bar i{display:block;height:100%;width:0;background:repeating-linear-gradient(45deg,var(--g700) 0 6px,var(--g500) 6px 12px);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.timeline{border-left:3px dashed var(--g700);margin-left:8px;padding-left:1.8rem}
+.tl{position:relative;margin-bottom:1.6rem}.tl::before{content:"";position:absolute;left:-2.4rem;top:.3rem;width:16px;height:16px;background:var(--gold);border:3px solid var(--ink);border-radius:50%}
+.tl small{background:var(--g700);color:var(--cream);padding:2px 10px;letter-spacing:.1em}
+.tl h5{margin:.5rem 0 .2rem;font-weight:800}
+/* projects */
+#projects{--prev:var(--cream);background:var(--g700);color:var(--cream)}
+#projects .title{color:var(--cream)}
+#plist{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+#plist>div{flex:0 0 calc((100% - 48px)/3);max-width:calc((100% - 48px)/3)}
+.pcard{display:block;height:100%;min-height:270px;padding:1.8rem;background:var(--g900);border:2px solid var(--gold);color:var(--cream);text-decoration:none;position:relative;overflow:hidden;transition:.3s}
+.pcard .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.32;filter:sepia(.45) saturate(.8);transform:scale(1.05);transition:.6s}
+.pcard::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(27,45,26,.25),rgba(27,45,26,.93) 75%)}
+.pcard .in{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;height:100%;min-height:210px}
+.pcard:hover{transform:translateY(-8px);box-shadow:8px 8px 0 var(--gold);color:var(--cream)}
+.pcard:hover .bg{opacity:.55;transform:scale(1.14)}
+.pcard .no{font-family:'Playfair Display';font-size:3.2rem;color:var(--gold);opacity:.6;position:absolute;top:.4rem;right:1rem;font-weight:800;z-index:2}
+.pcard i{font-size:2rem;color:var(--gold)}.pcard h4{margin:.6rem 0 .5rem;font-weight:800}.pcard p{font-size:.92rem;opacity:.9;margin:0}
+@media(max-width:991px){#plist>div{flex-basis:calc((100% - 24px)/2);max-width:calc((100% - 24px)/2)}}
+@media(max-width:575px){#plist>div{flex-basis:100%;max-width:100%}}
+/* gallery */
+#design{--prev:var(--ink2);background:var(--paper)}
+#design .title{color:var(--g800)}
+.stage{max-width:860px;margin:0 auto 2.4rem;padding:22px;background:#fbf6e8;border:3px solid var(--ink);box-shadow:10px 10px 0 var(--g700),inset 0 0 0 8px #fbf6e8,inset 0 0 0 10px var(--gold)}
+.gfor .slide{height:min(62vh,520px);display:flex!important;align-items:center;justify-content:center}
+.gfor img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-in}
+.aw{position:relative;max-width:1000px;margin:0 auto;padding:0 54px}
+.slick-slide{outline:0}
+.slick-arrow{font-size:0;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;padding:0;background:var(--g700);border:2px solid var(--ink);z-index:5;cursor:pointer;color:transparent;transition:.2s}
+.slick-arrow:hover{background:var(--rust)}
+.slick-prev{left:-54px}.slick-next{right:-54px}
+.slick-arrow::before{font-family:'bootstrap-icons';font-size:20px;line-height:40px;color:var(--cream)}
+.slick-prev::before{content:"\f284"}.slick-next::before{content:"\f285"}
+.slick-dots{list-style:none;display:flex;justify-content:center;gap:9px;padding:0;margin:1.4rem 0 0}
+.slick-dots button{font-size:0;width:12px;height:12px;padding:0;border:2px solid var(--dc,var(--g700));background:transparent;border-radius:50%;transition:.2s}
+.slick-dots .slick-active button{background:var(--dc,var(--g700));transform:scale(1.25)}
+.gnav .slide{padding:14px 9px 6px;cursor:pointer}
+.thumb{height:120px;background:#fbf6e8;border:2px solid var(--ink);padding:5px;opacity:.5;transition:.35s}
+.thumb img{width:100%;height:100%;object-fit:contain;display:block}
+.gnav .slick-slide.on .thumb{opacity:1;border-color:var(--rust);transform:translateY(-8px);box-shadow:0 0 0 4px var(--gold),6px 8px 0 var(--g700)}
+#model{--prev:var(--g700);--dc:var(--gold);background:var(--ink2);color:var(--cream)}
+#model .title{color:var(--cream)}
+.mslide{padding:20px 12px;outline:0}
+.mframe{position:relative;height:470px;background:#f3ead6;padding:10px 10px 38px;box-shadow:0 12px 26px rgba(0,0,0,.55);opacity:.65;transform:scale(.88);transition:.6s}
+.mframe img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.1);transition:filter .7s}
+.mframe .cap{position:absolute;bottom:9px;left:0;right:0;text-align:center;font-family:'Playfair Display';font-style:italic;color:var(--ink)}
+.slick-slide.on .mframe{opacity:1;transform:scale(1)}
+.slick-slide.on .mframe img{filter:none}
+.mframe.empty img{display:none}
+.mframe.empty::after{content:"+ Thêm ảnh " attr(data-f);position:absolute;inset:10px 10px 38px;display:flex;align-items:center;justify-content:center;text-align:center;border:2px dashed var(--g500);background:var(--paper);color:var(--g700);padding:1rem}
+/* connect */
+#connect{--prev:var(--paper);background:var(--brown);color:var(--cream)}
+#connect .title{color:var(--cream)}
+.svc{text-align:center;padding:1.6rem;border:2px dashed var(--gold);height:100%}
+.svc i{font-size:2.4rem;color:var(--gold)}.svc h4{margin:.8rem 0 .4rem;font-weight:800}
+.contact a{display:flex;align-items:center;gap:.8rem;padding:.9rem 1.2rem;color:var(--cream);text-decoration:none;border:2px solid var(--gold);margin:0;min-width:0;overflow-wrap:anywhere;transition:.2s}
+.contact>div{width:100%;max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:575px){.contact>div{grid-template-columns:1fr}}
+.contact a:hover{background:var(--gold);color:var(--ink);padding-left:1.8rem}
+/* donate */
+#donate{--prev:var(--brown);background:var(--cream)}
+.qr{max-width:360px;width:100%;border:8px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.25);transform:rotate(-2deg)}
+.gcard{display:block;height:100%;padding:16px;background:#faf3e0;border:2px solid var(--ink);box-shadow:8px 8px 0 var(--rust);color:var(--ink);text-decoration:none;transition:.25s}
+.gcard:hover{transform:translate(5px,5px);box-shadow:3px 3px 0 var(--rust);color:var(--ink)}
+.gcard .im{height:260px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #cfc3a3;margin-bottom:14px;overflow:hidden}
+.gcard .im img{max-width:100%;max-height:100%;object-fit:contain}
+.gcard h4{font-weight:800;margin:0 0 .2rem}
+.gate{display:block;padding:1.1rem;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--rust);margin:1rem auto;max-width:380px;color:var(--ink);text-decoration:none;font-weight:700;background:#faf3e0;transition:.2s}
+.gate:hover{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--rust)}
+footer{background:var(--g900);color:var(--cream);text-align:center;padding:1.6rem;border-top:4px double var(--gold);font-size:.9rem}
+.modal-content{background:#fbf6e8;border:3px solid var(--ink)}
+@media(max-width:768px){.stamp{display:none}.aw{padding:0 4px}.mframe{height:400px}.gfor .slide{height:340px}.thumb{height:90px}.stage{padding:14px}}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top" id="nav">
+ <div class="container">
+  <a class="navbar-brand" href="#home"><img src="img/LogoWeb.svg" alt="logo">Kietkuny</a>
+  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="menu"><ul class="navbar-nav ms-auto">
+   <li class="nav-item"><a class="nav-link" href="#home">Trang chủ</a></li>
+   <li class="nav-item"><a class="nav-link" href="#about">Về tôi</a></li>
+   <li class="nav-item"><a class="nav-link" href="#projects">Dự án</a></li>
+   <li class="nav-item"><a class="nav-link" href="#model">Người mẫu</a></li>
+   <li class="nav-item"><a class="nav-link" href="#design">Thiết kế</a></li>
+   <li class="nav-item"><a class="nav-link" href="#connect">Kết nối</a></li>
+   <li class="nav-item"><a class="nav-link" href="#donate">Donate</a></li>
+  </ul></div>
+ </div>
+</nav>
+
+<section id="home">
+ <div class="container"><div class="row align-items-center g-5">
+  <div class="col-lg-7" data-aos="fade-right">
+   <p class="text-uppercase" style="letter-spacing:.3em;color:var(--gold)">— Portfolio · Est. 2000 —</p>
+   <h1>Mình là <em>Kiệt Kun</em></h1>
+   <div class="typed-line">I am a <b id="typed"></b></div>
+   <p class="quote">" Tôi tin rằng mỗi người đều có một câu chuyện đáng để kể."</p>
+   <div class="my-4 d-flex flex-wrap gap-3">
+    <a class="btn btn-vin fill" href="https://docs.google.com/forms/d/e/1FAIpQLSfxaPSi_sjHv0DlFE9_MrO3W6-qJ_SB66-bH8u1UAaRclapxg/viewform?usp=sf_link" target="_blank">Review</a>
+    <a class="btn btn-vin" href="#donate">Donate</a>
+   </div>
+   <div class="social">
+    <a href="https://www.facebook.com/kietkuny/" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+    <a href="https://www.instagram.com/kietkuny/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+    <a href="https://www.youtube.com/@kietkuny" target="_blank" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+    <a href="https://www.tiktok.com/@kietkuny.social" target="_blank" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+   </div>
+  </div>
+  <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="200">
+   <div class="polaroid"><video src="img/about.mp4" autoplay muted loop playsinline></video><span>Nha Trang · Khánh Hòa</span></div>
+  </div>
+ </div>
+ <svg class="stamp" viewBox="0 0 200 200"><defs><path id="c" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs><circle cx="100" cy="100" r="92" fill="none" stroke="#c8963a" stroke-width="3"/><circle cx="100" cy="100" r="52" fill="none" stroke="#c8963a" stroke-dasharray="3 5"/><text font-family="Courier Prime" font-size="15" fill="#c8963a" letter-spacing="3"><textPath href="#c">CONTENT CREATOR ✦ MATCHA LOVER ✦ NHA TRANG ✦</textPath></text><text x="100" y="108" text-anchor="middle" font-family="Playfair Display" font-size="26" fill="#c8963a" font-weight="800">K.K</text></svg>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container">
+  <h2 class="title" data-aos="fade-up">Về Bản Thân</h2><p class="sub">Câu chuyện của mình</p>
+  <ul class="nav nav-pills justify-content-center mb-5" data-aos="fade-up">
+   <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#t1">About Me</button></li>
+   <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#t2">Skills</button></li>
+   <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#t3">Experience</button></li>
+  </ul>
+  <div class="tab-content card-paper" data-aos="fade-up">
+   <div class="tab-pane fade show active" id="t1"><table class="info w-100">
+    <tr><td>Họ và tên:</td><td>Đỗ Tuấn Kiệt</td></tr><tr><td>Biệt danh:</td><td>Kiệt Kun</td></tr>
+    <tr><td>Chiều cao:</td><td>1m74</td></tr><tr><td>Sinh nhật:</td><td>04/12/2000</td></tr>
+    <tr><td>Đến từ:</td><td>Nha Trang, Khánh Hòa</td></tr><tr><td>Sở thích:</td><td>Du lịch, hát, chụp hình, quay phim</td></tr>
+    <tr><td>Món ăn yêu thích:</td><td>Ốc sò</td></tr><tr><td>Đồ uống yêu thích:</td><td>Matcha đá xay</td></tr>
+    <tr><td>Màu sắc yêu thích:</td><td>Xanh lá 🍵</td></tr><tr><td>Định hướng:</td><td>Ca sĩ / Người truyền cảm hứng</td></tr></table></div>
+   <div class="tab-pane fade" id="t2"><div class="row" id="skills"></div></div>
+   <div class="tab-pane fade" id="t3"><div class="timeline">
+    <div class="tl"><small>10/2025 - 4/2026</small><h5>IT văn phòng</h5><p>Hỗ trợ phần cứng và phần mềm, khắc phục sự cố kỹ thuật và tạo banner, video quảng cáo cho công ty và nhà hàng.</p></div>
+    <div class="tl"><small>1/2025 - 6/2025</small><h5>Lập trình low code</h5><p>Phát triển ứng dụng bằng các nền tảng low code (OutSystems).</p></div>
+    <div class="tl"><small>4/2024 - 10/2024</small><h5>IT Bệnh viện</h5><p>Quản lý phần mềm và phần cứng ở bệnh viện.</p></div>
+    <div class="tl"><small>11/2023 - 2/2024</small><h5>Lập trình website WordPress</h5><p>Lập trình frontend website WordPress.</p></div>
+   </div></div>
+  </div>
+ </div>
+</section>
+
+<section id="projects">
+ <div class="container">
+  <h2 class="title" data-aos="fade-up">Dự Án Đã Làm</h2><p class="sub">Những thứ mình tự hào</p>
+  <div id="plist"></div>
+ </div>
+</section>
+
+<section id="model">
+ <div class="container">
+  <h2 class="title" data-aos="fade-up">Người Mẫu Ảnh</h2><p class="sub">Những bức hình vintage</p>
+  <div class="aw" data-aos="fade-up"><div id="mSlider"></div></div>
+ </div>
+</section>
+
+<section id="design">
+ <div class="container">
+  <h2 class="title" data-aos="fade-up">Thiết kế Banner / Poster</h2><p class="sub">Bộ sưu tập</p>
+  <div class="stage" data-aos="fade-up"><div id="gFor" class="gfor"></div></div>
+  <div class="aw gnav-wrap" data-aos="fade-up"><div id="gNav" class="gnav"></div></div>
+ </div>
+</section>
+
+<section id="connect">
+ <div class="container">
+  <h2 class="title" data-aos="fade-up">Kết Nối &amp; Hợp Tác</h2><p class="sub">Đang tìm đồng đội cùng chí hướng Content Creator</p>
+  <div class="row g-4 mb-5">
+   <div class="col-md-4" data-aos="flip-left"><div class="svc"><i class="bi bi-camera-reels"></i><h4>Video Production</h4><p>Chuyên quay dựng, lên ý tưởng kịch bản video ngắn/dài.</p></div></div>
+   <div class="col-md-4" data-aos="flip-left" data-aos-delay="150"><div class="svc"><i class="bi bi-people"></i><h4>Tìm Đồng Đội</h4><p>Cần tìm 1 bạn đam mê làm content, không ngại diễn xuất, cùng nhau xây kênh triệu sub!</p></div></div>
+   <div class="col-md-4" data-aos="flip-left" data-aos-delay="300"><div class="svc"><i class="bi bi-palette"></i><h4>Creative Design</h4><p>Thiết kế thumbnail, poster, bộ nhận diện thương hiệu cá nhân.</p></div></div>
+  </div>
+  <div class="row justify-content-center contact" data-aos="fade-up"><div class="col-md-7">
+   <a href="mailto:dotuankiet.nt@gmail.com"><i class="bi bi-envelope"></i> dotuankiet.nt@gmail.com</a>
+   <a href="https://facebook.com/kietkuny" target="_blank"><i class="bi bi-facebook"></i> facebook.com/kietkuny</a>
+   <a href="#"><i class="bi bi-discord"></i> Discord: kietkuny</a>
+   <a href="tel:0913847561"><i class="bi bi-chat-dots"></i> Zalo: 0913 847 561</a>
+  </div></div>
+ </div>
+</section>
+
+<section id="donate">
+ <div class="container text-center">
+  <h2 class="title" data-aos="fade-up">Donate Ủng Hộ</h2><p class="sub">Một gói mì tôm</p>
+  <p class="mx-auto" style="max-width:640px" data-aos="fade-up"><i>"Giang hồ hiểm ác không bằng mạng lag đói ăn."</i><br>Một gói mì tôm của bạn lúc này còn quý hơn vàng. Hãy cứu lấy chiếc bụng đói của Content Creator này để có sức ra video tiếp theo!</p>
+  <ul class="nav nav-pills justify-content-center my-4">
+   <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#d1">Chuyển Khoản</button></li>
+   <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#d2">Cổng Donate</button></li>
+  </ul>
+  <div class="tab-content">
+   <div class="tab-pane fade show active" id="d1"><div class="row g-5 justify-content-center">
+    <div class="col-md-5"><img class="qr mb-3" src="img/IMG_6913.JPG" alt="QR Vietcombank"><h4>Vietcombank</h4><p>STK: 1027019780<br>Chủ TK: DO TUAN KIET</p></div>
+    <div class="col-md-5"><img class="qr mb-3" src="img/IMG_6016.JPG" alt="QR BVBank"><h4>BVBank</h4><p>STK: 99MM24007M34898032<br>Ví Momo: ĐỖ TUẤN KIỆT</p></div>
+   </div></div>
+   <div class="tab-pane fade" id="d2">
+    <div class="row g-5 justify-content-center">
+     <div class="col-md-5"><a class="gcard" href="https://zypage.com/kietkuny" target="_blank"><div class="im"><img src="img/zypage.jpeg" alt="Zypage"></div><h4>Zypage</h4><small>zypage.com/kietkuny</small></a></div>
+     <div class="col-md-5"><a class="gcard" href="https://wescan.vn/kietkuny" target="_blank"><div class="im"><img src="img/wescan.png" alt="WeScan"></div><h4>WeScan</h4><small>wescan.vn/kietkuny</small></a></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<footer>© 2026 Created by <b>Kuny</b>. Design with <i class="bi bi-heart-fill" style="color:var(--rust)"></i> &amp; Coffee.</footer>
+
+<div class="modal fade" id="zoom" tabindex="-1"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content p-2"><img id="zimg" class="img-fluid" alt=""></div></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
+<script>
+const skills=[["Adobe Premiere / Capcut",85],["Adobe Illustrator / Canva",80],["Viết content",80],["Chụp hình / Quay phim",90],["Wordpress / Low code",70],["Cài Windows / Office",90],["IT Hỗ trợ",90]];
+const projects=[["bi-airplane","Vlog Du Lịch Đà Lạt","Series vlog du lịch màu vintage.","https://youtu.be/KRDoWgZm43k?si=TYJfLD7tgCbdJThU","project-2.jpg"],
+["bi-controller","Highlight Valorant","Edit video highlight game với đồng đội tấu hề.","https://youtu.be/jgY2ZSnOLbM?si=ZwVmwtkTjX5RrKqD","project-5.jpg"],
+["bi-vector-pen","Thiết kế Banner / Poster","Thiết kế banner và poster cho các sự kiện, sản phẩm, thương hiệu cá nhân.","#design","project-3.jpg"],
+["bi-mortarboard","Đồ án tốt nghiệp","Quản lý cửa hàng điện tử Phong Vũ.","https://github.com/kietkuny/phongvustore","project-1.jpg"],
+["bi-camera","Người mẫu ảnh","Một người thích sống ảo trên mạng với những bức hình vintage.","#model","project-4.jpg"]];
+// ẢNH NGƯỜI MẪU: bỏ ảnh vào thư mục img/model/ rồi thêm/sửa tên file ở đây (nên có từ 5 ảnh trở lên)
+const models=["m1.jpg","m2.jpg","m3.jpg","m4.jpg","m5.jpg","m6.jpg","m7.jpg"];
+const imgs=["Hiền triết Sage","hpny","poster vqmm","Thumbnail","tết poster","Đánh giá GGMaps","ytc1-4","ytc16-5","ytc30-4.1-5"];
+
+$('#skills').html(skills.map(s=>`<div class="col-md-6 skill"><div class="d-flex justify-content-between"><span>${s[0]}</span><span>${s[1]}%</span></div><div class="bar"><i data-w="${s[1]}"></i></div></div>`).join(''));
+$('#plist').html(projects.map((p,i)=>`<div data-aos="fade-up" data-aos-delay="${i*100}"><a class="pcard" href="${p[3]}" ${p[3][0]=='#'?'':'target="_blank"'}><div class="bg" style="background-image:url('img/${p[4]}')"></div><span class="no">0${i+1}</span><div class="in"><i class="bi ${p[0]}"></i><h4>${p[1]}</h4><p>${p[2]}</p></div></a></div>`).join(''));
+const U=n=>encodeURI('img/design/'+n+'.png');
+$('#gFor').html(imgs.map(n=>`<div class="slide"><img src="${U(n)}" alt="${n}"></div>`).join(''));
+$('#gNav').html(imgs.map(n=>`<div class="slide"><div class="thumb"><img src="${U(n)}" alt="${n}"></div></div>`).join(''));
+$('#mSlider').html(models.map((m,i)=>`<div class="mslide"><div class="mframe" data-f="${m}"><img src="img/model/${m}" alt="Người mẫu ${i+1}" onerror="this.parentNode.classList.add('empty')"><span class="cap">N°0${i+1}</span></div></div>`).join(''));
+
+new Typed('#typed',{strings:['Content Creator','Video Editor','Graphic Designer','IT Support','Singer ♪'],typeSpeed:60,backSpeed:35,backDelay:1400,loop:true});
+AOS.init({duration:900,once:true,offset:60});
+// tính lại vị trí AOS mỗi khi chiều cao trang thay đổi (slick, ảnh, font tải xong)
+let aosT;new ResizeObserver(()=>{clearTimeout(aosT);aosT=setTimeout(()=>AOS.refresh(),120)}).observe(document.body);
+
+// Đánh dấu .on cho CẢ ảnh thật lẫn bản sao (clone) của slick -> không bị khựng khi lặp vòng
+function sync(sel,N){const $s=$(sel);
+ const mark=n=>$s.find('.slick-slide').each(function(){const i=+this.getAttribute('data-slick-index');this.classList.toggle('on',((i%N)+N)%N===n)});
+ $s.on('init reInit',(e,sl)=>mark(sl.currentSlide)).on('beforeChange',(e,sl,c,n)=>mark(n));}
+// slick: khởi tạo SAU khi ảnh tải xong để không bị lỗi kích thước
+$(window).on('load',function(){
+ sync('#gNav',imgs.length);sync('#mSlider',models.length);
+ $('#gFor').slick({slidesToShow:1,slidesToScroll:1,arrows:false,fade:true,speed:500,asNavFor:'#gNav'});
+ $('#gNav').slick({slidesToShow:5,slidesToScroll:1,asNavFor:'#gFor',centerMode:true,centerPadding:'0px',focusOnSelect:true,dots:true,
+  responsive:[{breakpoint:768,settings:{slidesToShow:3}},{breakpoint:576,settings:{slidesToShow:3,arrows:false}}]});
+ $('#mSlider').slick({centerMode:true,centerPadding:'60px',slidesToShow:3,infinite:true,autoplay:true,autoplaySpeed:2600,speed:700,dots:true,focusOnSelect:true,
+  responsive:[{breakpoint:992,settings:{slidesToShow:3,centerPadding:'30px',arrows:false}},{breakpoint:576,settings:{slidesToShow:1,centerPadding:'50px',arrows:false}}]});
+ $('#gFor').on('click','img',function(){$('#zimg').attr('src',this.src);new bootstrap.Modal('#zoom').show()});
+ $(window).on('resize',()=>$('.slick-initialized').slick('setPosition'));
+ setTimeout(()=>AOS.refreshHard(),300);
+});
+
+// thanh kỹ năng chạy khi mở tab
+document.querySelector('[data-bs-target="#t2"]').addEventListener('shown.bs.tab',()=>$('.bar i').each(function(){$(this).css('width',$(this).data('w')+'%')}));
+// navbar đổi nền khi cuộn
+// navbar đổi nền + active menu theo section đang xem
+const secs=[...document.querySelectorAll('section[id]')],links=[...document.querySelectorAll('#menu .nav-link')];
+function onScroll(){
+ $('#nav').toggleClass('solid',scrollY>60);
+ let cur=secs[0].id;
+ secs.forEach(s=>{if(s.getBoundingClientRect().top<=innerHeight*0.35)cur=s.id});
+ if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur=secs[secs.length-1].id;
+ links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);addEventListener('load',onScroll);onScroll();
+// bấm menu trên điện thoại thì tự đóng
+links.forEach(a=>a.addEventListener('click',()=>{const c=bootstrap.Collapse.getInstance('#menu');if(c)c.hide()}));
+</script>
+</body>
+</html>
