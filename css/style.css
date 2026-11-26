@@ -262,7 +262,7 @@ section>.container {
     background: linear-gradient(90deg, rgba(8, 40, 30, .7), rgba(8, 40, 30, .3) 55%, rgba(8, 40, 30, .08))
 }
 
-#home::after {
+/* #home::after {
     content: "";
     position: absolute;
     left: 0;
@@ -271,7 +271,7 @@ section>.container {
     height: 140px;
     z-index: 1;
     background: linear-gradient(transparent, #f7fffc)
-}
+} */
 
 @media(max-width:991px) {
     #home {
@@ -530,7 +530,7 @@ section>.container {
 }
 
 .intro-card {
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto
 }
 
@@ -831,7 +831,6 @@ section>.container {
 .mw img {
     width: 100%;
     aspect-ratio: 4/5;
-    max-height: 560px;
     object-fit: cover;
     border-radius: 12px;
     display: block
